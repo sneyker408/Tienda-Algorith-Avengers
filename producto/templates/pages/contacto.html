@@ -5,23 +5,25 @@
 {% block contenido%}
 
 <div class="container mt-4">
-    <p class="text-center tamaño-texto fuente">Contacto</p>
-    <hr class="mt-4 largo">
+    <p class="text-center mt-4" style="font-family: Bungee Shade, cursive; font-size: 50px; margin-bottom: -1rem; margin-top: -1rem;">Contacto</p>
+    <hr class="mt-4">
 </div>
 
-<div class="row imagen-superior">
-    <div class="col-md-4">
+<div class="row" style="margin-top: 2rem;">
+    <div class="col-12 col-md-4">
     </div>
-    <div class="col-md-4">
+    <div class="col-12 col-md-4">
         <div class="card container text-center image-with-shadow">
-            <div class="card-header header-fondo">
+            <div class="card-header" style="background-color: orange; margin-left: -0.8rem; margin-right: -0.8rem;">
             Nuestro equipo se pondrá en contacto contigo.
             </div>
             <div class="card-body">
-                <input class="form-control rectangulo me-2" type="search" placeholder="Nombre:" aria-label="Search"><br>
-                <input class="form-control rectangulo me-2" type="search" placeholder="Correo Electronico:" aria-label="Search"><br>
-                <input class="form-control cuadro me-2" type="search" placeholder="Mensaje:" aria-label="Search"><br>
-            <a href="#" class="btn btn-success">Enviar</a>
+                <input class="form-control me-2" type="search" placeholder="Nombre:" aria-label="Search"><br>
+                <input class="form-control me-2" type="search" placeholder="Correo Electrónico:" aria-label="Search"><br>
+                <div class="form-group">
+                    <textarea class="form-control me-2" type="search" placeholder="Mensaje:" aria-label="Search" rows="5"></textarea>
+                </div>                
+                <a href="#" class="btn btn-success mt-4">Enviar</a>
             </div>
         </div>
     </div>
