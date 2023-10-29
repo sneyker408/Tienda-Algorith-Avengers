@@ -40,3 +40,6 @@ def editarProducto(request, id):
         return redirect('productos')
     
     return render(request, 'producto/editar.html', {'formulario':formulario})
+
+def contacto(request):
+    return render(request, 'pages/contacto.html')
