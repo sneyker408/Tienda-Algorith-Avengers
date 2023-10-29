@@ -1,0 +1,30 @@
+{% extends "base.html"%} 
+
+{% block titulo %} <title>TiendaOnline</title> {% endblock %}
+
+{% block contenido%}
+
+<div class="container mt-4">
+    <p class="text-center tamaño-texto fuente">Contacto</p>
+    <hr class="mt-4 largo">
+</div>
+
+<div class="row imagen-superior">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <div class="card container text-center image-with-shadow">
+            <div class="card-header header-fondo">
+            Nuestro equipo se pondrá en contacto contigo.
+            </div>
+            <div class="card-body">
+                <input class="form-control rectangulo me-2" type="search" placeholder="Nombre:" aria-label="Search"><br>
+                <input class="form-control rectangulo me-2" type="search" placeholder="Correo Electronico:" aria-label="Search"><br>
+                <input class="form-control cuadro me-2" type="search" placeholder="Mensaje:" aria-label="Search"><br>
+            <a href="#" class="btn btn-success">Enviar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

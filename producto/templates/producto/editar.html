@@ -1,0 +1,32 @@
+{% extends "base.html"%} 
+
+{% block titulo %} <title>TiendaOnline</title> {% endblock%}
+
+{% block contenido%}
+
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="card card-formulario">
+                                <div class="card-header">
+                                        <h4 class="card-title">Editar producto</h4>
+                                    <div class="card-body">
+                                        {% include 'producto/form.html' %}
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        <a href="{% url 'productos' %}" class="btn btn-info">Volver</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            
+            </div>   
+        </div>
+    </div>
+
+{% endblock%}
