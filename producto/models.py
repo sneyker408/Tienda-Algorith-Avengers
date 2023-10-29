@@ -10,6 +10,6 @@ class Productos(models.Model):
 
 class Contacto(models.Model):
     id = models.AutoField(primary_key=True, auto_created=True)
-    Nombre = models.TextField(null=False, max_length=100)
+    Usuario = models.TextField(null=False, max_length=100)
     Correo = models.TextField(null=False, max_length=100)
     Mensaje = models.TextField(null=False, max_length=500)

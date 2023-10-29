@@ -1,7 +1,7 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .models import Productos
-from .forms import ProductoForm
+from .models import Productos, Contacto
+from .forms import ProductoForm, ContactoForm
 from django.contrib import messages
 
 # Create your views here.
@@ -42,4 +42,25 @@ def editarProducto(request, id):
     return render(request, 'producto/editar.html', {'formulario':formulario})
 
 def contacto(request):
-    return render(request, 'pages/contacto.html')
+    return render(request, 'contacto/contacto.html')
+
+def contactar(request):
+    formularioContacto = ContactoForm(request.POST or None)
+
+    if formularioContacto.is_valid():
+        # producto = formulario.save
+        formularioContacto.save()
+        messages.success(request,"Mensaje enviado con exito.")
+        return redirect("inicio")
+
+    return render(request, 'contacto/contacto.html', {'formularioContacto':formularioContacto})
+
+def recibidos(request):
+    contactos = Contacto.objects.all()
+    return render(request, 'contacto/recibidos.html', {'contactos':contactos})
+
+def eliminarMensaje(request,id):
+    contacto = Contacto.objects.get(id = id)
+    contacto.delete()
+    messages.success(request,"Mensaje eliminado con exito.")
+    return redirect('mensajes_recibidos')

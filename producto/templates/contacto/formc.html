@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for campos in formularioContacto %} 
+        <div class="mb-3">
+            <label class="form-label">{{ campos.label }}</label>
+            <input 
+                type="{{ campos.field.widget.input_type }}" 
+                class="form-control" 
+                name="{{ campos.name }}"
+                placeholder="{{ campos.label }}"
+                value="{{ campos.value | default:'' }}"
+                >
+
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i></button>
+</form>

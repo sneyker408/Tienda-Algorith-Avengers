@@ -1,0 +1,28 @@
+{% extends "base.html"%} 
+
+{% block titulo %} <title>TiendaOnline</title> {% endblock %}
+
+{% block contenido%}
+
+<div class="container mt-4">
+    <p class="text-center mt-4" style="font-family: Bungee Shade, cursive; font-size: 50px; margin-bottom: -1rem; margin-top: -1rem;">Contacto</p>
+    <hr class="mt-4">
+</div>
+
+
+<div class="container mt-5" style="margin-bottom: 50px;">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <div class="card">
+                <div class="card-header" style="background-color: orange;">
+                    <h4 class="card-title">Nuestro equipo se pondrá en contacto contigo.</h4>
+                </div>
+                <div class="card-body">
+                    {% include 'contacto/formc.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

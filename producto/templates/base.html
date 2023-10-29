@@ -22,7 +22,10 @@
                     <a class="navbar-brand active"href="{% url 'productos' %}">Productos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="navbar-brand active" href="{% url 'contacto' %}">Contacto</a>
+                    <a class="navbar-brand active" href="{% url 'contactar' %}">Contacto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'mensajes_recibidos' %}" class="navbar-brand active">Reportes</i></i></a>
                   </li>
                 </ul>
                 <form class="d-flex"role="search">
@@ -46,7 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {% block js %}
 <script>
-    function eliminarProducto(id) {
+    function confirmarEliminar(id) {
         Swal.fire({
             "title":"¿Estás seguro?",
             "text": "Esta acción no se puede deshacer.",
