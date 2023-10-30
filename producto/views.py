@@ -18,7 +18,7 @@ def crearProducto(request):
     if formulario.is_valid():
         # producto = formulario.save
         formulario.save()
-        messages.success(request,"Prodcuto creado con exito.")
+        messages.success(request,"Agregaste un nuevo producto.")
         return redirect('productos')
 
     return render(request, 'producto/crear.html', {'formulario':formulario})
@@ -26,7 +26,7 @@ def crearProducto(request):
 def eliminarProductos(request, id):
     producto = Productos.objects.get(id = id)
     producto.delete()
-    messages.success(request,"Prodcuto eliminado con exito.")
+    messages.success(request,"Producto eliminado con exito.")
     return redirect('productos')
 
 def editarProducto(request, id):
@@ -36,7 +36,7 @@ def editarProducto(request, id):
     
     if formulario.is_valid():
         formulario.save()
-        messages.success(request,"Prodcuto modificado con exito.")
+        messages.success(request,"Producto modificado con exito.")
         return redirect('productos')
     
     return render(request, 'producto/editar.html', {'formulario':formulario})
@@ -51,7 +51,6 @@ def contactar(request):
         # producto = formulario.save
         formularioContacto.save()
         messages.success(request,"Mensaje enviado con exito.")
-        return redirect("inicio")
 
     return render(request, 'contacto/contacto.html', {'formularioContacto':formularioContacto})
 

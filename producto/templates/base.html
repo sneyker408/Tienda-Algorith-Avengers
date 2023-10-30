@@ -50,21 +50,42 @@
     {% block js %}
 <script>
     function confirmarEliminar(id) {
-        Swal.fire({
-            "title":"¿Estás seguro?",
-            "text": "Esta acción no se puede deshacer.",
-            "icon": "question",
-            "showCancelButton": true,
-            "cancelButtonText": "No, cancelar",
-            "confirmButtonText": "Si, eliminar",
-            "reverseButtons": true,
-            "confirmButtonColor": "#dc3545",
-        })
-        .then(function(result){
-        if(result.isConfirmed){
-            window.location.href = "eliminar/"+id;
-            }
-        })
+
+      
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: '¿Deseas Eliminar el Contenido?',
+    text: "¡No podras revertir esta opcion!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Si, borrar!',
+    cancelButtonText: 'No, cancelar!',
+    confirmButtonColor: '#dc3545',
+    reverseButtons: true
+    
+  }).then((result) => {
+    if (result.isConfirmed) {
+ 
+        window.location.href = "eliminar/" + id
+      
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelado',
+        'El contenido se conserva.',
+        'error'
+      )
+    }
+  })
     }
 </script>
 {% endblock %}
