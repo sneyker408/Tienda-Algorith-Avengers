@@ -51,6 +51,7 @@ def contactar(request):
         # producto = formulario.save
         formularioContacto.save()
         messages.success(request,"Mensaje enviado con exito.")
+        return redirect('inicio')
 
     return render(request, 'contacto/contacto.html', {'formularioContacto':formularioContacto})
 
