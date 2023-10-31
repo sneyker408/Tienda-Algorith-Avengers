@@ -15,6 +15,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Nombre Producto</th>
+                        <th scope="col">Descripción</th>
                         <th scope="col">Existencias</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Acciones</th>
@@ -24,6 +25,7 @@
                         {% for producto in productos %} 
                         <tr>
                             <td>{{ producto.Nombre }}</td>
+                            <td>{{ producto.Descripcion }}</td>
                             <td>{{ producto.Existencias }}</td>
                             <td>${{ producto.Precio }}</td>
                             <td>
