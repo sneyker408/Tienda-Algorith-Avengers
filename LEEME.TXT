@@ -38,3 +38,5 @@
 12. Finalizamos corriendo el servidor con el comando -> python manage.py runserver 
     Con Ctrl + Click abrimos la Url en el navegador
 
+13. luego con la git bash subes los cambios al repositorio con tu propia rama 
+
