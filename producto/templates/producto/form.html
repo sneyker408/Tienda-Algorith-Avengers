@@ -1,0 +1,18 @@
+
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for campo in formulario %}
+    {% load static %}
+    <div class="mb-3">
+
+        <div class="form-floating mb-4">
+            <input class="form-control" placeholder="{{ campo.label }}" id="input"
+                type="{{ campo.field.widget.input_type }}" class="form-control" name="{{ campo.name }}"
+                value="{{ campo.value | default:'' }}" required>
+
+            <label style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" for="floatingInput">{{ campo.label }}</label>
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Guardar <i class="bi bi-floppy"></i></button>
+</form>

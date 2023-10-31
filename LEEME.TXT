@@ -1,0 +1,40 @@
+1. Si existe una carpeta llamada enviroment en nuestro proyecto eliminala y sigue con los siguientes pasos 
+
+2. Luego dentro la carpeta Mi_tienda_Online buscamos el archivo settings.py lo abrimos y buscammos el array DATABASES,
+ modificamos los datos dentro de los atributos NAME,PASSWORD,PORT segun tu gestor de bases mysql por ejemplo:
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -> DATABASES = {
+                   'default': {
+                               'ENGINE': 'django.db.backends.mysql',
+                               'NAME': 'TiendaArgorithDB',
+                               'USER':'root',
+                               'PASSWORD':'micontra',
+                               'HOST': 'localhost',
+                               'PORT':'3306',  
+                           }
+                       }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3. Ejecuta este comando en la terminal del visual o cmd especificando el directorio del proyecto -> python -m venv enviroment 
+
+4. activamos el enviroment con el comando -> .\enviroment\Scripts\activate
+
+5. Instala django con el comando -> pip install django
+
+6. Instala MySQL con el comando -> pip install PyMySQL
+
+7. Instala cryptography con el comando -> pip install cryptography
+
+8. nos dirigimos a la aplicacion de MySQL y los creaamos una base de datos llamado TiendaArgorithDB->
+
+9. Nos dirigimos al gestor de base datos desde las applicaciones de inicio de windows, la abrimos nos autenticamos,
+   luego creamos una base de datos llamada TiendaArgorithDB dentro de una consulta con el comando -> CREATE DATABASE TiendaArgorithDB; 
+   Sombreamos el comando y ejecutamos con el icono de rayo 
+
+10. Nos dirigimos nuevamente al visual estudio abrimos la terminal y creamos las migraciones con el comando -> python manage.py makemigrations
+
+11. luego imporatmos y empujamos las migraciones al gestor de bases de datos con el comando -> python manage.py migrate
+
+12. Finalizamos corriendo el servidor con el comando -> python manage.py runserver 
+    Con Ctrl + Click abrimos la Url en el navegador
+

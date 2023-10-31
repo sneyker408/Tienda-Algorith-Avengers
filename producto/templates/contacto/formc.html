@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for campos in formularioContacto %} 
+    {% load static %}
+    <div class="mb-3">
+
+        <div class="form-floating mb-4">
+            <input class="form-control" placeholder="{{ campos.label }}" id="input"
+                type="{{ campos.field.widget.input_type }}" class="form-control" name="{{ campos.name }}"
+                value="{{ campos.value | default:'' }}" required>
+
+            <label style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" for="floatingInput">{{ campos.label }}</label>
+        </div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Guardar <i class="bi bi-floppy"></i></button>
+</form>

@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %} {% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'img/compras.png' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'inicio' %}"><i class="bi bi-shop"></i>ㅤInicio</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="navbar-brand active"href="{% url 'productos' %}">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="navbar-brand active" href="{% url 'contactar' %}">Contacto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'mensajes_recibidos' %}" class="navbar-brand active">Reportes</i></i></a>
+                  </li>
+                </ul>
+                <form class="d-flex"role="search">
+                  <label class="form-control"><i class="bi bi-person-circle"></i></label>
+                  <button class="btn btn-outline-danger" style="margin-left: 5px;" type="submit"><i class="bi bi-escape"></i></button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>     
+      {% block contenido %}
+      {% endblock%}
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% block js %}
+<script>
+    function confirmarEliminar(id) {
+
+      
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    
+  })
+  
+  swalWithBootstrapButtons.fire({
+    title: '¿Deseas Eliminar el Contenido?',
+    text: "¡No podras revertir esta opcion!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Si, borrar!',
+    cancelButtonText: 'No, cancelar!',
+    confirmButtonColor: '#dc3545',
+    reverseButtons: true
+    
+  }).then((result) => {
+    if (result.isConfirmed) {
+ 
+        window.location.href = "eliminar/" + id
+      
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelado',
+        'El contenido se conserva.',
+        'error'
+      )
+    }
+  })
+    }
+</script>
+{% endblock %}
+    {% if messages %}
+      {% for m in messages %}
+        <script>
+          Swal.fire({
+            "title": "Confirmación",
+            "text": "{{m}}",
+            "icon": "success"
+          })
+        </script>
+      {% endfor %}
+    {% endif  %}
+</body>
+</html>
