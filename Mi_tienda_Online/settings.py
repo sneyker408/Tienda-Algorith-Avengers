@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TiendaArgorithDB',
         'USER':'root',
-        'PASSWORD':'Chocolate2015',
+        'PASSWORD':'1234',
         'HOST': 'localhost',
         'PORT':'3306',  
     }
