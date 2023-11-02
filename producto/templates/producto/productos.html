@@ -1,0 +1,54 @@
+{% extends "base.html"%} {enddextends}
+
+{% block contenido%}
+
+<div class="container" style="font-family: sans-serif;">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <h2><b><i>Productos Existentes</i></b></h2>
+      <hr style="width: 50%;" class="mx-auto d-block">
+      <div class="container d-grid gap-2" style="width: 50%;">
+        <a class="btn btn-outline-success" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" type="button" href="{% url 'crear_producto' %}">
+          ¡ Nuevo Producto ! <i class="bi bi-cart4"></i></a>
+      </div>
+      <br>
+      <center>
+        <table class="table table-bordered table-hover" style="width: 70%;">
+          <thead class="table-dark">
+            <tr
+              style="text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+              <th scope="col">Nombre Producto</th>
+              <th scope="col">Existencia</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for producto in productos %}
+            <tr class="align-middle" style="text-align: center;">
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.existencias }}</td>
+              <td>${{ producto.precio }}</td>
+              <td>
+
+                <a href="{% url 'editar_producto' producto.id %}" class="btn btn-primary"><i
+                    class="bi bi-pencil-square"></i></a>
+
+                <a onclick="eliminarProducto({{producto.id}})" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+
+              </td>
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+        </table>
+
+      </center>
+      </hr>
+    </div>
+  </div>
+</div>
+{% endblock%}

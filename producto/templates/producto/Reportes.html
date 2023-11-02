@@ -1,0 +1,42 @@
+{% extends "base.html"%} {enddextends}
+
+{% block contenido%}
+
+<div class="container" style="font-family: sans-serif;">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <br>
+      <br>
+      <h2><b>Mensajería</b></h2>
+      <hr style="width: 50%;" class="mx-auto d-block">
+      <center>
+        <table class="table table-bordered table-hover" style="width: 70%;">
+          <thead class="table-dark">
+            <tr
+              style="text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+              <th scope="col">Usuario</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Mensaje</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for mensaje in mensajes %}
+            <tr class="align-middle" style="text-align: center;">
+              <td>{{ mensaje.usuario }}</td>
+              <td>{{ mensaje.correo }}</td>
+              <td>{{ mensaje.descripcion }}</td>
+              <td>
+                <a onclick="eliminarReporte({{mensaje.id}})" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </center>
+      </hr>
+    </div>
+  </div>
+</div>
+{% endblock%}

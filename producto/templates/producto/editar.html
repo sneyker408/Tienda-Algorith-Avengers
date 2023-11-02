@@ -1,0 +1,29 @@
+{% extends "base.html"%}
+
+{% block contenido%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <br>
+            <center>
+                <br>
+                <div class="card" style="width: 50%;">
+                    <div class="card-header">
+                        <h4 class="card-title">Editar producto</h4>
+                        <div class="card-body">
+                            {% include 'producto/form.html' %}
+                        </div>
+                        <div class="card-footer text-muted">
+                            <br>
+                            <a href="{% url 'productos' %}" class="btn btn-outline-secondary">Regresar <i
+                                    class="bi bi-arrow-left-circle"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

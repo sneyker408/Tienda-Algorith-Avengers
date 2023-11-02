@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+
+{% load static %}
+
+{% block titulo %} 
+<title>TiendaOnline</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}"> 
+{% endblock%}
+
+{% block contenido%}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12 text-center">
+            <br>
+            <br>
+            <h1><b><i>Bienvenido a tu tienda online</i></b></h1>
+            <hr>
+            <br>
+            <img src="{% static 'img/super.jpg' %}" alt="Banner Promocional" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+{% endblock%}

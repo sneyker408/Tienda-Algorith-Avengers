@@ -1,0 +1,4 @@
+enviroment/
+Tienda-Algorith-Avengers/enviroment/Lib/site-packages
+enviroment/Lib/site-packages/
+enviroment/Scripts/
