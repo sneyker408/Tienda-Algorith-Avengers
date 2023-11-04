@@ -2,9 +2,9 @@
 
 {% load static %}
 
-{% block titulo %} 
+{% block titulo %}
 <title>TiendaOnline</title>
-<link rel="stylesheet" href="{% static 'css/index.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock%}
 
 {% block contenido%}
@@ -22,5 +22,37 @@
         </div>
     </div>
 </div>
-
+<footer><br><br><br><br>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="nav-link active"aria-current="page" href="#" style="color: white;"><b>Visita nuestras redes sociales:</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-threads"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-twitter-x"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-snapchat"></i></a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a class="nav-link active"><b>Atención al cliente | 75032914 <i class="bi bi-telephone-fill"></i></b></a>
+                </span>
+            </div>
+        </div>
+    </nav>
+</footer>
 {% endblock%}

@@ -5,7 +5,8 @@ function validar() {
             title: '¡Departamento Restringido!',
             input: 'password',
             inputLabel: '- Validar Permisos -',
-            confirmButtonText:'Verificar',
+            confirmButtonText:'Verificar <i class="bi bi-person-lock"></i>',
+            confirmButtonColor:'#328880',
             inputPlaceholder: 'Ingrese su contraseña',
             inputAttributes: {
                 maxlength: 10,
@@ -38,8 +39,8 @@ function eliminarProducto(id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, borrar',
-        cancelButtonText: 'No, cancelar',
+        confirmButtonText: 'Si, borrar <i class="bi bi-check2-circle"></i>',
+        cancelButtonText: 'No, cancelar <i class="bi bi-x-circle"></i>',
         reverseButtons: true
 
     }).then((result) => {
@@ -58,8 +59,8 @@ function eliminarReporte(id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, borrar',
-        cancelButtonText: 'No, cancelar',
+        confirmButtonText: 'Si, borrar <i class="bi bi-check2-circle"></i>',
+        cancelButtonText: 'No, cancelar <i class="bi bi-x-circle"></i>',
         reverseButtons: true
 
     }).then((result) => {
