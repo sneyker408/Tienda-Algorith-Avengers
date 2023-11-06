@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'Mi_tienda_Online.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TiendaArgorithDB',
+        'NAME': 'mitiendadb',
         'USER':'root',
-        'PASSWORD':'1234',
+        'PASSWORD':'B@gr0551',
         'HOST': 'localhost',
         'PORT':'3306',  
     }

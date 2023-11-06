@@ -26,7 +26,7 @@
                     <a class="navbar-brand active" href="{% url 'contactar' %}">Contacto</a>
                   </li>
                   <li class="nav-item">
-                    <a href="{% url 'mensajes_recibidos' %}" class="navbar-brand active">Reportes</i></i></a>
+                    <a class="navbar-brand active" href="#" onclick="validar()">Mensajeria</i></a>
                   </li>
                 </ul>
                 <form class="d-flex"role="search">
@@ -48,48 +48,8 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {% block js %}
-<script>
-    function confirmarEliminar(id) {
+    <script src="{% static '/js/alerts.js' %}"></script>
 
-      
-const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger'
-    },
-    
-  })
-  
-  swalWithBootstrapButtons.fire({
-    title: '¿Deseas Eliminar el Contenido?',
-    text: "¡No podras revertir esta opcion!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Si, borrar!',
-    cancelButtonText: 'No, cancelar!',
-    confirmButtonColor: '#dc3545',
-    reverseButtons: true
-    
-  }).then((result) => {
-    if (result.isConfirmed) {
- 
-        window.location.href = "eliminar/" + id
-      
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        'Cancelado',
-        'El contenido se conserva.',
-        'error'
-      )
-    }
-  })
-    }
-</script>
-{% endblock %}
     {% if messages %}
       {% for m in messages %}
         <script>
