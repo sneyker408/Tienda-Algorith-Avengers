@@ -68,8 +68,26 @@ def listarMensajes(request):
     return render(request,'producto/Reportes.html', {'mensajes': mensajes})
 
 def eliminarMensaje(request,id):
-    menssa=get_object_or_404(Contacto,id=id)
-    menssa.delete()
+    mensaje=get_object_or_404(Contacto,id=id)
+    mensaje.delete()
     messages.success(request, "Mensaje Eliminado")
 
     return redirect(to=listarMensajes)
+
+def cantidad_comprada(request, id, cantidad):
+    
+    articulo = get_object_or_404(Producto, id=id)
+
+    articulo.existencias -= cantidad
+
+    articulo.save()
+    
+    messages.success(request, "Compra Realizada")
+    return redirect(to=listadoProductos)
+
+    
+
+    
+
+
+    
