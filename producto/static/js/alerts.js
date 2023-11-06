@@ -8,6 +8,8 @@ function vender(id, existencias, precio) {
             inputPlaceholder: 'Cantidad requerida',
             confirmButtonText: 'Ingresar <i class="bi bi-hand-index-thumb"></i>',
             showCancelButton: true,
+            confirmButtonColor: 'green',
+            cancelButtonColor: 'red',
             cancelButtonText: 'Cancelar <i class="bi bi-x-lg"></i>'
         })
 
@@ -22,7 +24,7 @@ function vender(id, existencias, precio) {
                 title: '¡ DETALLE DE PAGO !',
                 text: `〖 Requerido: ${cantidad} 〗 〖 Cancelar: $${resul} 〗`,
                 showCancelButton: true,
-                cancelButtonText: 'Regresar <i class="bi bi-x-lg"></i>',
+                cancelButtonText: 'Anular <i class="bi bi-x-lg"></i>',
                 confirmButtonText: 'Pagar <i class="bi bi-cash-coin"></i>',
                 confirmButtonColor: 'green',
                 cancelButtonColor: 'red',
@@ -41,11 +43,38 @@ function vender(id, existencias, precio) {
             }
             else if (pago == resul) {
 
-                window.location.href = "/producto/" + id +"/"+ cantidad  
+                Swal.fire({
+                    icon: 'success',
+                    iconColor: 'green',
+                    title: '¡Compra Realizada EXITOSAMENTE!',
+                    text: '- Gracias por su compra -',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Vale <i class="bi bi-house-check"></i>',
+                    confirmButtonColor: '#2471A3'
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        window.location.href = "/producto/" + id + "/" + cantidad
+                    }
+                })
             }
             else if (pago > resul) {
                 let devolucion = pago - resul
-                window.location.href = "/producto/" + id +"/"+ cantidad
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Compra Realizada EXITOSAMENTE!',
+                    text: `Su cambio es: $${devolucion} |  Gracias por su compra `,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Vale <i class="bi bi-house-check"></i>',
+                    confirmButtonColor: '#2471A3',
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        window.location.href = "/producto/" + id + "/" + cantidad
+                    }
+                })
             }
         }
         else if (cantidad <= 0 || cantidad > existencias) {

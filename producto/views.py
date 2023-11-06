@@ -82,7 +82,7 @@ def cantidad_comprada(request, id, cantidad):
 
     articulo.save()
     
-    messages.success(request, "Compra Realizada")
+    #messages.success(request, "Compra Realizada")
     return redirect(to=listadoProductos)
 
     
