@@ -1,3 +1,5 @@
+//Funcion para realizar la venta de productos, cada vez que se haga una compra 
+//se actualizara las existencias del producto
 function vender(id, existencias, precio) {
     (async () => {
 
@@ -16,6 +18,7 @@ function vender(id, existencias, precio) {
         if (cantidad == "") {
 
         }
+        //Validar que la cantidad ingresa sea mayor a 0 o menor e igual a la exitencias
         else if (cantidad > 0 && cantidad <= existencias) {
 
             let resul = cantidad * precio
@@ -31,6 +34,7 @@ function vender(id, existencias, precio) {
                 input: 'number',
                 inputPlaceholder: 'Ingresa la cantidad de efectivo'
             })
+            //Validar si el pago es menor a la solicita mandarle un error
             if (pago < resul) {
                 Swal.fire({
                     icon: 'error',
@@ -41,6 +45,7 @@ function vender(id, existencias, precio) {
                     timer: 3200
                 })
             }
+            //Si el pago es igual al resultado, la compra se realizara exitosamente
             else if (pago == resul) {
 
                 Swal.fire({
@@ -59,6 +64,7 @@ function vender(id, existencias, precio) {
                     }
                 })
             }
+            //SI el pago es mayor al solicitado se le hara la devolucion del dinero restante y se realizara al compra
             else if (pago > resul) {
                 let devolucion = pago - resul
                 Swal.fire({
@@ -77,6 +83,7 @@ function vender(id, existencias, precio) {
                 })
             }
         }
+        // si la cantidad que solita es menor o mayor a la exitencias le dara un error
         else if (cantidad <= 0 || cantidad > existencias) {
             Swal.fire({
                 icon: 'warning',
@@ -89,6 +96,8 @@ function vender(id, existencias, precio) {
         }
     })()
 }
+
+//Funcion para validar el departamento de mensajeria
 function validar() {
 
     (async () => {
@@ -116,11 +125,12 @@ function validar() {
                 title: 'Error de Autenticación',
                 text: '- Contraseña Incorrecta -',
                 showConfirmButton: false,
-                timer: 1750
+                timer: 1000
             })
         }
     })()
 }
+// Funcion para eliminar un producto
 function eliminarProducto(id) {
     Swal.fire({
         title: '¿Deseas Eliminar El Producto?',
@@ -141,6 +151,7 @@ function eliminarProducto(id) {
     })
 }
 
+//Funcion para eliminar un mensaje
 function eliminarReporte(id) {
     Swal.fire({
         title: '¿Deseas Eliminar El Mensaje?',
@@ -158,32 +169,5 @@ function eliminarReporte(id) {
         if (result.isConfirmed) {
             window.location.href = "/producto/Reportes/" + id
         }
-    })
-}
-
-
-if (cantidad <= existencias && cantidad > 0) {
-
-    let resul = cantidad * precio
-
-    Swal.fire({
-        title: '¡ DETALLE DE PAGO !',
-        text: `
-        Requerido: ${cantidad}
-        Pagar: $${resul}`,
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar <i class="bi bi-x-lg"></i>',
-        confirmButtonText: 'Pagar <i class="bi bi-cash-coin"></i>',
-        confirmButtonColor: 'green',
-        cancelButtonColor: 'red',
-    })
-} else {
-    Swal.fire({
-        icon: 'warning',
-        iconColor: '#FF3200',
-        title: '¡Cantidad Incorrecta!',
-        text: '- Cantidad menor o mayor a la existente -',
-        showConfirmButton: false,
-        timer: 3000
     })
 }
