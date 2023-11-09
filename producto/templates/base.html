@@ -18,36 +18,59 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #17507D;">
       <div class=" container-fluid">
-      <a class="navbar-brand" href="{% url 'inicio' %}"><b>Inicio <i class="bi bi-shop"></i></i></b></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'productos' %}"><b>Existencias</b> <i
-                class="bi bi-table"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{% url 'Acerca_De_Nosotros' %}"><b>Acerca De </b> <i
-                class="bi bi-info-circle"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{% url 'Contactanos' %}"><b>Contactanos</b> <i class="bi bi-phone"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#" onclick="validar()"><b>Mensajería </b><i class="bi bi-chat-square-text"></i></a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <label class="form-control">Usuario: <i class="bi bi-person-circle"></i></label>
-          <a href="{% url 'inicio' %}" class="btn btn-outline-danger" style="margin-left: 5px;" type="submit"><i
-              class="bi bi-box-arrow-left" disabled></i></a>
-        </form>
-      </div>
+        <a class="navbar-brand" href="{% url 'inicio' %}"><b>Inicio <i class="bi bi-shop"></i></i></b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'productos' %}"><b>Existencias</b> <i
+                  class="bi bi-table"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'Acerca_De_Nosotros' %}"><b>Acerca De </b> <i
+                  class="bi bi-info-circle"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'Contactanos' %}"><b>Contactanos</b> <i
+                  class="bi bi-phone"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#" onclick="validar()"><b>Mensajería </b><i
+                  class="bi bi-chat-square-text"></i></a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <li class="nav-item" style="color: white;" class="btn" type="button" id="desplegar"
+              data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><b>Sobre la
+                empresa <i class="bi bi-buildings"></i></b>
+            </li>
+          </form>
+        </div>
       </div>
     </nav>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header" style="background-color: orange; color: white;">
+        <h5 id="offcanvasRightLabel" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+          Tienda Algorithm Avengers</h5><img src="{% static 'img/compras.png' %}" width="40px" height="40px" alt="...">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p style="text-align:justify; font-family: Arial, Helvetica, sans-serif;">
+          <strong>Algorithm Avengers</strong> es una tienda en línea que ofrece una amplia
+          variedad de productos, similar a un supermercado. Esta tienda se especializa en 
+          la venta de productos de alta calidad y confiabilidad. Aquí encontrarás todo lo
+          que necesitas, desde alimentos frescos y enlatados hasta productos de cuidado
+           personal, artículos para el hogar, productos electrónicos y mucho más.
+        </p>
+        <center>
+          <img src="{% static 'img/productos.webp' %}" width="300px" height="200px" alt="..."
+            style="border-radius: 20px;">
+        </center>
+      </div>
+    </div>
   </header>
   <main>
   </main>
@@ -84,3 +107,19 @@
 </body>
 
 </html>
+
+
+<!-- <li class="btn" type="button" id="desplegar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"><b>Sobre la empresa <i class="bi bi-buildings"></i></b>
+            </li>
+          
+          
+         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Tienda Algorithm Avengers</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div> -->
