@@ -1,66 +1,86 @@
-from django.shortcuts import redirect, render
+from contextlib import redirect_stderr
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from .models import Productos, Contacto
-from .forms import ProductoForm, ContactoForm
+from .forms import ContactoForm, ProductoFomr
 from django.contrib import messages
 
+
+# existen 2 tipos de parametros que se usan en las peticiones http 
+# 1- Request
+# 2- Response
 # Create your views here.
+
 def inicio(request):
     return render(request, 'pages/inicio.html')
 
 def listadoProductos(request):
     productos = Productos.objects.all()
-    return render(request, 'producto/productos.html', {'productos': productos})
+    return render(request,'producto/productos.html', {'productos': productos})
 
 def crearProducto(request):
-    formulario = ProductoForm(request.POST or None)
-
+    formulario = ProductoFomr(request.POST or None)
+    
     if formulario.is_valid():
-        # producto = formulario.save
         formulario.save()
-        messages.success(request,"Agregaste un nuevo producto.")
+        messages.success(request,"Producto Registrado")
         return redirect('productos')
-
+    
     return render(request, 'producto/crear.html', {'formulario':formulario})
 
-def eliminarProductos(request, id):
-    producto = Productos.objects.get(id = id)
-    producto.delete()
-    messages.success(request,"Producto eliminado con exito.")
-    return redirect('productos')
+def eliminar(request,id):
+    product=get_object_or_404(Productos,id=id)
+    product.delete()
+    messages.success(request, "Producto Eliminado")
 
-def editarProducto(request, id):
-    producto = Productos.objects.get(id = id)
+    return redirect(to=listadoProductos)
 
-    formulario = ProductoForm(request.POST or None, instance= producto)
-    
+
+def editar_producto(request,id):
+    producto=Productos.objects.get(id=id)
+    formulario=ProductoFomr(request.POST or None, instance=producto)
+
     if formulario.is_valid():
-        formulario.save()
-        messages.success(request,"Producto modificado con exito.")
-        return redirect('productos')
+      formulario.save()
+
+      messages.success(request, "Producto Modificado")
+
+      return redirect('productos')
     
-    return render(request, 'producto/editar.html', {'formulario':formulario})
+    return render(request,'producto/editar.html', {'formulario': formulario})
 
-def contacto(request):
-    return render(request, 'contacto/contacto.html')
+def crearContacto(request):
+    reportes = ContactoForm(request.POST or None)
+    
+    if reportes.is_valid():
+        reportes.save()
+        messages.success(request,"Mensaje Registrado")
+        return redirect('Contactanos')
+    
+    return render(request, 'producto/Contactanos.html', {'formulario':reportes})
 
-def contactar(request):
-    formularioContacto = ContactoForm(request.POST or None)
+def AcercaDe(request):
 
-    if formularioContacto.is_valid():
-        # producto = formulario.save
-        formularioContacto.save()
-        messages.success(request,"Mensaje enviado con exito.")
-        return redirect('inicio')
-
-    return render(request, 'contacto/contacto.html', {'formularioContacto':formularioContacto})
-
-def recibidos(request):
-    contactos = Contacto.objects.all()
-    return render(request, 'contacto/recibidos.html', {'contactos':contactos})
+    return render(request, 'producto/AcercaDe.html')     
+      
+def listarMensajes(request):
+    mensajes = Contacto.objects.all()
+    return render(request,'producto/Reportes.html', {'mensajes': mensajes})
 
 def eliminarMensaje(request,id):
-    contacto = Contacto.objects.get(id = id)
-    contacto.delete()
-    messages.success(request,"Mensaje eliminado con exito.")
-    return redirect('mensajes_recibidos')
+    mensaje=get_object_or_404(Contacto,id=id)
+    mensaje.delete()
+    messages.success(request, "Mensaje Eliminado")
+
+    return redirect(to=listarMensajes)
+
+def cantidad_comprada(request, id, cantidad):
+    
+    articulo = get_object_or_404(Productos, id=id)
+
+    articulo.existencias -= cantidad
+
+    articulo.save()
+    
+    #messages.success(request, "Compra Realizada")
+    return redirect(to=listadoProductos)

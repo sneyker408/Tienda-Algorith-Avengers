@@ -1,16 +1,82 @@
-{% extends "base.html"%} 
+{% extends "base.html"%}
+
 {% load static %}
-{% block titulo %} <title>TiendaOnline</title> {% endblock%}
+
+{% block titulo %}
+<title>TiendaOnline</title>
+{% endblock %}
 
 {% block contenido%}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p class="text-center mt-4" style="font-family: Bungee Shade, cursive; font-size: 50px;">Bienvenido a tu tienda online</p>
-                <img src="{% static 'img/super.jpg' %}" alt="Banner Promocional" class="img-fluid" style="margin-top: 25px;">
-            </div>   
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-12 text-center">
+            <br>
+            <br>
+            <h1><b><i>Bienvenido a tu tienda online</i></b></h1>
+            <hr>
+            <br>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <center>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="margin-bottom: 60px;" data-bs-interval="1400">
+                            <img src="{% static 'img/mercado.jpg' %}" class="d-block w-80" alt="...">
+                        </div>
+                        <div class="carousel-item" style="margin-bottom: 60px;" data-bs-interval="1400">
+                            <img src="{% static 'img/tienda.jpg' %}" class="d-block w-80" alt="...">
+                        </div>
+                        <div class="carousel-item" style="margin-bottom: 60px;" data-bs-interval="1400">
+                            <img src="{% static 'img/carrito.jpg' %}" class="d-block w-80" alt="...">
+                        </div>
+                    </div>
+                </center>
+            </div>
         </div>
     </div>
-
-{% endblock%}
+</div>
+<footer><br><br><br><br>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:  #17507D ; margin-top: -55px;>
+        <div class="container-fluid">
+            <a class="nav-link active" aria-current="page" style="color: white;"><b>Visita nuestras redes
+                    sociales:</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://www.threads.net/login"><i
+                                class="bi bi-threads"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://twitter.com/"><i class="bi bi-twitter-x"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://accounts.snapchat.com/"><i
+                                class="bi bi-snapchat"></i></a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a class="nav-link active"><b>Atención al cliente | 25035914 <i class="bi bi-telephone-fill"></i></b></a>
+                </span>
+            </div>
+        </div>
+    </nav>
+</footer>
+{% endblock %}
