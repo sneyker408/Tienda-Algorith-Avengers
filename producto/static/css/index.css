@@ -1,5 +1,13 @@
 h1{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: cursive;
     font-style: italic;
+    font-weight: bold;
+}
+.nav-item{
+    font-family: cursive;
+    font-size: 17px;
+}
+.navbar-brand{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
 }
