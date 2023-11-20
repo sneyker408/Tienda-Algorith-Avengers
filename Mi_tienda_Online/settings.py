@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-f=i)n%ifxqqlt*lzqx13y-*bpw4)(a++g%y!)qa2y#lcq17xv%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tienda-crud-db-e8cfcb01a935.herokuapp.com']
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Mi_tienda_Online.urls'
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mitiendadb',
         'USER':'root',
-        'PASSWORD':'contra',
+        'PASSWORD':'Chocolate2015',
         'HOST': 'localhost',
         'PORT':'3306',  
     }
@@ -130,7 +131,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'producto','static')
 ]
-
+STATICFILES_STORAGE = ['whitenoise.storage.CompressedManifestStaticFilesStorage']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
