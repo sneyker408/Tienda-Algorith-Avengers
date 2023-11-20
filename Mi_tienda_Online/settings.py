@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j&eq%2t6=5@^ohjs@yj3=ac33%k#1%kyzj+kr#b*uyiwrufkht'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['tienda-crud-db-e8cfcb01a935.herokuapp.com']
 
